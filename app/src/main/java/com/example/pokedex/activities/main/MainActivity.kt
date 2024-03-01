@@ -1,5 +1,6 @@
 package com.example.pokedex.activities.main
 
+import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
@@ -31,6 +32,18 @@ class MainActivity : AppCompatActivity() {
         window.statusBarColor = resources.getColor(R.color.redTop)
         viewModel.getMenuByRoll(binding.bottomNavigationView)
         viewModel.initBottonNavigation(binding, supportFragmentManager)
+
+        showMsg()
+    }
+
+    fun showMsg() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(R.string.app_name)
+        builder.setMessage("Bienvenid@ ${preferences.userName}")
+        builder.setPositiveButton(android.R.string.yes) { dialogThis, _ ->
+            dialogThis.dismiss()
+        }
+        builder.show()
     }
 
 }

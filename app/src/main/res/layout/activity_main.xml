@@ -39,24 +39,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
-        <LinearLayout
-            android:id="@+id/ll_main_detaill"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:layout_marginHorizontal="10dp"
-            android:background="@drawable/bg_corner_radius"
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieAnimationView"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="300dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/pokemon_trainer" />
-
-        </LinearLayout>
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.32999998"
+            app:lottie_autoPlay="true"
+            app:lottie_imageAssetsFolder="images/"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/person" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -67,22 +65,43 @@
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ll_main_detaill">
+            app:layout_constraintTop_toBottomOf="@+id/lottieAnimationView">
 
             <TextView
                 android:id="@+id/tv_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="Nombre:"
+                android:fontFamily="@font/pixel"
                 android:textColor="@color/whiteCard"
                 android:textSize="30dp" />
 
 
             <TextView
-                android:id="@+id/tv_temp_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Edad: 10 años"
+                android:gravity="center"
+                android:text="Edad: 18 años"
+                android:fontFamily="@font/pixel"
+                android:textColor="@color/whiteCard"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Ocupacion: Entrenador Pokemon"
+                android:fontFamily="@font/pixel"
+                android:textColor="@color/whiteCard"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Region: Kanto"
+                android:fontFamily="@font/pixel"
                 android:textColor="@color/whiteCard"
                 android:textSize="20dp" />
 

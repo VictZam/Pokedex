@@ -9,25 +9,15 @@ import androidx.lifecycle.ViewModel
 import com.example.pokedex.R
 import com.example.pokedex.databinding.ActivityMainBinding
 import com.example.pokedex.fragments.PokemonListFragment
-import com.example.pokedex.repositories.LoginRepository
 import com.simform.custombottomnavigation.Model
 import com.simform.custombottomnavigation.SSCustomBottomNavigation
-import io.reactivex.subjects.BehaviorSubject
 
 class MainViewModel : ViewModel() {
 
     lateinit var context: Context
 
-    private val repository = LoginRepository()
-    private val progressStatus: BehaviorSubject<Boolean> = BehaviorSubject.create()
-    private val onSucess: BehaviorSubject<String> = BehaviorSubject.create()
-    private val onFail: BehaviorSubject<String> = BehaviorSubject.create()
-
-    //private var service = MainViewService()
-
     fun getMenuByRoll(menu: SSCustomBottomNavigation) {
         menu.apply {
-
             add(
                 Model(
                     icon = R.drawable.ic_home_black_24dp,
@@ -42,14 +32,6 @@ class MainViewModel : ViewModel() {
                     text = R.string.menu_pokemon
                 )
             )
-            /*add(
-                Model(
-                    icon = R.drawable.ic_home_black_24dp,
-                    id = 2,
-                    text = R.string.menu_home
-                )
-            )*/
-
         }
     }
 
@@ -75,15 +57,6 @@ class MainViewModel : ViewModel() {
 
                 1 -> {
                     binding.tvTitle.text = "Pokemons"
-                    replaceFragment(
-                        binding,
-                        supportFragmentManager,
-                        PokemonListFragment().newInstance("Nómina")
-                    )
-                }
-
-                2 -> {
-                    binding.tvTitle.text = "Detalles"
                     replaceFragment(
                         binding,
                         supportFragmentManager,
