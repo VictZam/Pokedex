@@ -17,12 +17,16 @@ open class PokemonDetaillModel (
     @SerializedName("order") var order: Int,
     @SerializedName("sprites") var sprites: PokemonSpriteModel,
     @SerializedName("base_experience") var baseExperience: Int,
-    @SerializedName("moves") var moves: ArrayList<PokemonMoveModel>,
+    @SerializedName("moves") var moves: ArrayList<PokemonMovesModel>,
 )
 
 open class PokemonSpriteModel(
     @SerializedName("front_default") var frontDefault: String,
     @SerializedName("back_default") var backDefault: String,
+)
+
+open class PokemonMovesModel(
+    @SerializedName("move") var move: PokemonMoveModel,
 )
 open class PokemonMoveModel(
     @SerializedName("name") var name: String,

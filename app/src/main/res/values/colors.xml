@@ -17,4 +17,5 @@
     <color name="redTop">#EB4242</color>
     <color name="light_gray">#EAEAEA</color>
     <color name="dark_gray">#6C6C6C</color>
+    <color name="whiteAlpha">#00FFFFFF</color>
 </resources>

@@ -12,6 +12,7 @@ import com.example.pokedex.R
 import com.example.pokedex.adapters.PokemonAdapter
 import com.example.pokedex.databinding.ActivityMainBinding
 import com.example.pokedex.databinding.FragmentPokemonListBinding
+import com.example.pokedex.fragments.dialogs.PokemonDetailDialog
 import com.example.pokedex.models.PokemonModel
 import com.example.pokedex.subscriptions
 import com.example.pokedex.utils.ItemOffsetDecoration
@@ -86,7 +87,8 @@ class PokemonListFragment : Fragment() {
     }
 
     fun showPokemonDetail(item: PokemonModel) {
-
+        val dialog = PokemonDetailDialog().newInstance(item)
+        dialog.show(activity!!.supportFragmentManager, "Calidad raíz")
     }
 
     fun onProgressRequestChange(show: Boolean) {
