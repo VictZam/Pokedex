@@ -1,0 +1,16 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:state_enabled="true"
+        android:state_focused="true"
+        android:top="-2dp"
+        android:left="-2dp"
+        android:right="-1dp"
+        android:bottom="1dp"
+        android:drawable="@drawable/red_line_edit"/>
+    <item android:state_enabled="true"
+        android:top="12dp"
+        android:left="-2dp"
+        android:right="-1dp"
+        android:bottom="1dp"
+        android:drawable="@drawable/red_line_edit"/>
+</selector>

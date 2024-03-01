@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">Pokedex</string>
+    <string name="app_tittle">Pokedex</string>
+    <string name="app_version">v1</string>
+    <string name="app_name_preference">pokedex_shared_preferences_file</string>
+
+    <!--Login labels-->
+    <string name="user_hint">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="log_in_underline"><u>Inicio de sesión</u></string>
+    <string name="log_in_return_underline"><u>Volver a inicio de sesión</u></string>
+    <string name="log_in">Iniciar sesión</string>
+    <string name="log_in_error">Usuario y/o contraseña incorrecto, favor de verificar</string>
+
+    <!-- General -->
+    <string name="server_connection">Conectando con el servidor&#8230;</string>
+
+    <!-- Menu name -->
+    <string name="menu_home">Inicio</string>
+    <string name="menu_pokemon">Pokemons</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

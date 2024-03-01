@@ -7,4 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Login Colors-->
+    <color name="backGreen">#FF43A047</color>
+    <color name="textColor">#28255F</color>
+
+    <color name="whiteCard">#FFEFF2F5</color>
+    <color name="redCard">#E42E2E</color>
+    <color name="redTop">#EB4242</color>
+    <color name="light_gray">#EAEAEA</color>
+    <color name="dark_gray">#6C6C6C</color>
 </resources>
