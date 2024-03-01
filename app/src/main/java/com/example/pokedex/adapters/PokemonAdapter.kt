@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit
 
 class PokemonAdapter : RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder>() {
 
-    private var list = mutableListOf<PokemonModel>()
+    private var list = ArrayList<PokemonModel>()
     private val subscriptions = AndroidDisposable()
     private val clickSubject = PublishSubject.create<PokemonModel>()
 
@@ -31,7 +31,7 @@ class PokemonAdapter : RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder>() 
         holder.bind(list[position])
     }
 
-    fun addElements(pokemons: List<PokemonModel>) {
+    fun addElements(pokemons: ArrayList<PokemonModel>) {
         list.addAll(pokemons)
         notifyDataSetChanged()
     }

@@ -1,5 +1,6 @@
 package com.example.pokedex.fragments
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,17 +11,17 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.pokedex.R
 import com.example.pokedex.adapters.PokemonAdapter
-import com.example.pokedex.databinding.ActivityMainBinding
 import com.example.pokedex.databinding.FragmentPokemonListBinding
 import com.example.pokedex.fragments.dialogs.PokemonDetailDialog
 import com.example.pokedex.models.PokemonModel
+import com.example.pokedex.preferences
 import com.example.pokedex.subscriptions
 import com.example.pokedex.utils.ItemOffsetDecoration
 import com.example.pokedex.utils.extensions.addTo
+import com.example.pokedex.utils.hasInternet
 import com.example.pokedex.utils.setProgressDialog
 import com.example.pokedex.utils.showProgressDialog
 import com.example.pokedex.utils.toPx
-import com.example.pokedex.viewModels.LoginViewModel
 import com.example.pokedex.viewModels.PokemonListViewModel
 
 class PokemonListFragment : Fragment() {
@@ -36,6 +37,7 @@ class PokemonListFragment : Fragment() {
     private lateinit var binding: FragmentPokemonListBinding
     lateinit var viewModel: PokemonListViewModel
     var adapter = PokemonAdapter()
+    var pokemonList = ArrayList<PokemonModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -69,7 +71,16 @@ class PokemonListFragment : Fragment() {
     }
 
     fun loadData() {
-        viewModel.getPokemonList()
+        pokemonList.clear()
+        if(ifConected()) {
+            viewModel.getPokemonList()
+            preferences.deleteArrayList("pokemons")
+        }
+        else{
+            try {
+                addElements(preferences.getArrayList("pokemons"))
+            } catch (e: Exception) {}
+        }
     }
 
     private fun initRecycler() {
@@ -82,8 +93,13 @@ class PokemonListFragment : Fragment() {
         adapter.onClickItem().subscribe(this::showPokemonDetail).addTo(subscriptions)
     }
 
+    fun addElements(list: ArrayList<PokemonModel>) {
+        adapter.addElements(list)
+    }
     fun addElement(item: PokemonModel) {
         adapter.addElement(item)
+        pokemonList.add(item)
+        preferences.saveArrayList(pokemonList, "pokemons")
     }
 
     fun showPokemonDetail(item: PokemonModel) {
@@ -96,7 +112,24 @@ class PokemonListFragment : Fragment() {
     }
 
     fun onFail(msg: String) {
-
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle(R.string.app_name)
+        builder.setMessage(msg)
+        builder.setPositiveButton(android.R.string.yes) { dialogThis, _ ->
+            dialogThis.dismiss()
+        }
+        builder.show()
     }
+
+    fun ifConected(): Boolean {
+        return if (requireContext().hasInternet())
+            true
+        else {
+            onFail("Se requiere conexión a internet para obtener nuevos datos.")
+            false
+        }
+    }
+
+
 
 }

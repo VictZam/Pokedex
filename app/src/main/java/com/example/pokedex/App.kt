@@ -21,6 +21,8 @@ class App : Application() {
         preferences = Preferences(this)
         mSubscriptions = AndroidDisposable()
 
+
+
         /*Realm.init(this)
         val config = RealmConfiguration.Builder()
             .schemaVersion(MigrationExecutable.CURRENT_VERSION)

@@ -53,6 +53,14 @@ android {
     dataBinding {
         this.enable = true
     }
+
+    dependencies {
+        compileOnly("io.realm.kotlin:library-base:1.11.0")
+    }
+// If using Device Sync
+    dependencies {
+        compileOnly("io.realm.kotlin:library-sync:1.11.0")
+    }
 }
 
 dependencies {
@@ -77,23 +85,27 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
     //new libreries
-    implementation ("com.airbnb.android:lottie:3.0.7")
-    implementation ("com.github.pwittchen:reactivenetwork-rx2:3.0.8")
-    implementation ("io.reactivex.rxjava2:rxkotlin:2.0.2")
-    implementation ("io.reactivex.rxjava2:rxandroid:2.1.1")
-    implementation ("com.github.pwittchen:reactivenetwork-rx2:3.0.8")
-    implementation ("com.jakewharton.rxbinding3:rxbinding:3.0.0")
-    implementation ("com.jakewharton.rxbinding2:rxbinding:2.1.1")
-    implementation ("com.jakewharton.rxbinding2:rxbinding-design:2.1.1")
-    implementation ("com.jakewharton.rxbinding2:rxbinding-kotlin:2.1.1")
-    implementation ("com.github.simformsolutions:SSCustomBottomNavigation:3.4")
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.6")
-    implementation ("io.reactivex.rxjava2:rxkotlin:2.0.2")
-    implementation ("io.reactivex.rxjava2:rxandroid:2.1.1")
-    implementation ("com.squareup.retrofit2:retrofit:2.5.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.5.0")
-    implementation ("com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0")
-    implementation ("com.github.bumptech.glide:glide:4.13.0")
+    implementation("com.airbnb.android:lottie:3.0.7")
+    implementation("com.github.pwittchen:reactivenetwork-rx2:3.0.8")
+    implementation("io.reactivex.rxjava2:rxkotlin:2.0.2")
+    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
+    implementation("com.github.pwittchen:reactivenetwork-rx2:3.0.8")
+    implementation("com.jakewharton.rxbinding3:rxbinding:3.0.0")
+    implementation("com.jakewharton.rxbinding2:rxbinding:2.1.1")
+    implementation("com.jakewharton.rxbinding2:rxbinding-design:2.1.1")
+    implementation("com.jakewharton.rxbinding2:rxbinding-kotlin:2.1.1")
+    implementation("com.github.simformsolutions:SSCustomBottomNavigation:3.4")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.6")
+    implementation("io.reactivex.rxjava2:rxkotlin:2.0.2")
+    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
+    implementation("com.squareup.retrofit2:retrofit:2.5.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.5.0")
+    implementation("com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0")
+    implementation("com.github.bumptech.glide:glide:4.13.0")
+
+    implementation ("io.realm.kotlin:library-base:1.11.0")
+    implementation ("io.realm.kotlin:library-sync:1.11.0")// If using Device Sync
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0") // If using coroutines with the SDK
 }

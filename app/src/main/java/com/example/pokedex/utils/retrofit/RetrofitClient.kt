@@ -15,10 +15,10 @@ object RetrofitClient {
 
     private val okHttpClient = OkHttpClient.Builder().addInterceptor {
         val original = it.request()
-        val requestBuilder = original.newBuilder().method(original.method(), original.body())
+        val requestBuilder = original.newBuilder().method(original.method, original.body)
         val request = requestBuilder.build()
-        Log.i("URL", request.url().toString())
-        Log.i("BODY", gson.toJson(request.body()))
+        Log.i("URL", request.url.toString())
+        Log.i("BODY", gson.toJson(request.body))
         it.proceed(request)
     }.build()
 

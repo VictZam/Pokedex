@@ -64,4 +64,16 @@ class PokemonListViewModel : ViewModel() {
     fun onSuccessRequests(): BehaviorSubject<PokemonModel> =
         requestSuccess
 
+    fun getOfflinePokemonList(): Disposable =
+        repository.getPokemonList()
+            .subscribeOn(Schedulers.io())
+            .doOnSubscribe { progressStatus.onNext(true) }
+            .doOnTerminate { progressStatus.onNext(false) }
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                getDetaill(it)
+            }, {
+                onFail.onNext("Ocurrio un error al obtener los datos.")
+            })
+
 }
