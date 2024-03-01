@@ -73,5 +73,11 @@ class LoginViewModel : ViewModel() {
         context.startActivity(intent)
     }
 
+    fun validateIsLogin() {
+        if(preferences.userName != null) {
+            onSucess.onNext(preferences.userName ?: "No encontrado")
+        }
+    }
+
 
 }

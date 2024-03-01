@@ -1,14 +1,18 @@
 package com.example.pokedex.viewModels
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModel
 import com.example.pokedex.R
+import com.example.pokedex.activities.login.LoginActivity
+import com.example.pokedex.activities.main.MainActivity
 import com.example.pokedex.databinding.ActivityMainBinding
 import com.example.pokedex.fragments.PokemonListFragment
+import com.example.pokedex.preferences
 import com.simform.custombottomnavigation.Model
 import com.simform.custombottomnavigation.SSCustomBottomNavigation
 
@@ -78,6 +82,12 @@ class MainViewModel : ViewModel() {
         val fragmentTransation = fragmentManager.beginTransaction()
         fragmentTransation.replace(R.id.fragment_main, fragment)
         fragmentTransation.commit()
+    }
+
+    fun finishSession() {
+        preferences.deleteUser()
+        val intent = Intent(context, LoginActivity::class.java)
+        context.startActivity(intent)
     }
 
 }

@@ -18,6 +18,7 @@ import com.example.pokedex.utils.extensions.addTo
 import com.example.pokedex.utils.setImageUrl
 import com.example.pokedex.utils.toPx
 import com.jakewharton.rxbinding2.view.RxView
+import java.util.concurrent.TimeUnit
 
 class PokemonDetailDialog : DialogFragment() {
 
@@ -58,6 +59,7 @@ class PokemonDetailDialog : DialogFragment() {
         binding.tvExp.text = "Experiencia base: ${pokemon?.detaill?.baseExperience ?: 0}"
 
         RxView.clicks(binding.btnCancel)
+            .throttleFirst(1L, TimeUnit.SECONDS)
             .subscribe {
                 dialog.dismiss()
             }.addTo(subscriptions)

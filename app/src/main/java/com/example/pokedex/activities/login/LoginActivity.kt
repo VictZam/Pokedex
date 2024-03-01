@@ -11,6 +11,7 @@ import com.example.pokedex.utils.setProgressDialog
 import com.example.pokedex.utils.showProgressDialog
 import com.example.pokedex.viewModels.LoginViewModel
 import com.jakewharton.rxbinding2.view.RxView
+import java.util.concurrent.TimeUnit
 
 class LoginActivity : AppCompatActivity() {
 
@@ -28,12 +29,15 @@ class LoginActivity : AppCompatActivity() {
 
         setUpUi()
         subcribers()
+
+        viewModel.validateIsLogin()
     }
 
     fun setUpUi() {
         window.statusBarColor = resources.getColor(R.color.redTop)
 
         RxView.clicks(binding.btnLogin)
+            .throttleFirst(1L, TimeUnit.SECONDS)
             .subscribe {
                 doLogin()
             }.addTo(subscriptions)

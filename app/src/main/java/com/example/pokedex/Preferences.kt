@@ -15,6 +15,13 @@ class Preferences(context: Context) {
         get() = prefs.getString("userName", null)
         set(value) = prefs.edit().putString("userName", value).apply()
 
+    fun deleteUser() {
+        val editor: SharedPreferences.Editor = prefs.edit()
+        editor.remove("userName")
+        editor.remove("userPass")
+        editor.apply()
+    }
+
     var userPass: String?
         get() = prefs.getString("userPass", null)
         set(value) = prefs.edit().putString("userPass", value).apply()
@@ -30,6 +37,7 @@ class Preferences(context: Context) {
     fun deleteArrayList(key: String) {
         val editor: SharedPreferences.Editor = prefs.edit()
         editor.remove(key)
+        editor.apply()
     }
 
     fun getArrayList(key: String): ArrayList<PokemonModel> {
